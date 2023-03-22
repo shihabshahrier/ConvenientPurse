@@ -1,3 +1,6 @@
+import 'package:convenience_purse/views/splash_screen/splash_screen.dart';
+import 'package:get/get.dart';
+
 import './consts/consts.dart';
 
 void main() {
@@ -9,6 +12,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: appName,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.transparent,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
+        fontFamily: regular,
+      ),
+      home: const SplashScreen(),
+    );
   }
 }
