@@ -5,6 +5,8 @@ import 'package:convenience_purse/common_widgets/button.dart';
 import 'package:convenience_purse/consts/consts.dart';
 import 'package:get/get.dart';
 
+import '../signup_screen/signup.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -26,7 +28,7 @@ class LoginScreen extends StatelessWidget {
                   textField(hint: emailHint, title: email).paddingAll(10),
                   10.heightBox,
                   textField(hint: passwordHint, title: password).paddingAll(10),
-                  10.heightBox,
+                  5.heightBox,
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
@@ -34,25 +36,27 @@ class LoginScreen extends StatelessWidget {
                       child: forgetPass.text.make(),
                     ),
                   ),
-                  10.heightBox,
+                  5.heightBox,
                   button(
                     onPress: () {},
                     color: (redColor),
                     title: login,
                     textColor: whiteColor,
                   ).box.width(context.width - 100).make(),
-                  10.heightBox,
+                  5.heightBox,
                   createNewAccount.text.color(fontGrey).make(),
-                  10.heightBox,
+                  5.heightBox,
                   button(
-                    onPress: () {},
+                    onPress: () {
+                      Get.to(() => const SignUpScreen());
+                    },
                     color: (whiteColor),
                     title: signup,
                     textColor: redColor,
                   ).box.width(context.width - 100).make(),
-                  10.heightBox,
+                  5.heightBox,
                   loginWith.text.color(fontGrey).make(),
-                  10.heightBox,
+                  5.heightBox,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(

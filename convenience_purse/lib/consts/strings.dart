@@ -1,12 +1,19 @@
 const appName = "Convenience Purse";
 const appVersion = "Version 1.0.0";
 const credits = "@shihabshahriar";
+
+const name = "Name";
+const nameHint = "John Doe";
 const email = "Email";
-const emailHint = "admin@admin.com";
+const emailHint = "example@host.com";
 const password = "Password";
+const confirmPassword = "Confirm Password";
 const passwordHint = "********";
 const forgetPass = "Forget Password?";
 const login = "Log in";
 const signup = "Sign up";
 const createNewAccount = "or, create a new account";
 const loginWith = "Log in with";
+const priPolicy = "Privacy Policy";
+const termCond = "Terms & Conditions";
+const alreadyHaveAcc = "Already have an account?";
