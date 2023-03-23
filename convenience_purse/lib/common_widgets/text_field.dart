@@ -1,21 +1,22 @@
 import 'package:convenience_purse/consts/consts.dart';
 
-Widget textField() {
-  return Column(children: [
-    email.text.xl2.color(redColor).fontFamily(semibold).size(10).make(),
+Widget textField({String? title, String? hint, controller}) {
+  return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+    title!.text.xl2.color(redColor).fontFamily(semibold).size(10).make(),
     5.heightBox,
     TextFormField(
-      decoration: const InputDecoration(
-        hintStyle: TextStyle(
+      controller: controller,
+      decoration: InputDecoration(
+        hintStyle: const TextStyle(
           color: textfieldGrey,
           fontFamily: semibold,
         ),
-        hintText: emailHint,
+        hintText: hint,
         isDense: true,
         fillColor: lightGrey,
         filled: true,
         border: InputBorder.none,
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: redColor, width: 1.0),
         ),
       ),
