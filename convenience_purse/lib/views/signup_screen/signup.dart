@@ -1,4 +1,3 @@
-import 'package:get/get.dart';
 
 import '../../common_widgets/applogo.dart';
 import '../../common_widgets/bg_wid.dart';

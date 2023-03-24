@@ -1,5 +1,5 @@
 import 'package:convenience_purse/consts/consts.dart';
-
+import 'package:convenience_purse/views/category_screen/item_details.dart';
 
 const socialMIcons = [
   icGoogleLogo,
@@ -15,3 +15,35 @@ const featuredImages2 = [imgS4, imgS5, imgS6];
 
 const freaturedTitles1 = [womenDress, girlsDress, girlsWatches];
 const freaturedTitles2 = [boysGlasses, mobilePhone, tShirts];
+
+const categoriesList = [
+  menClothingFashion,
+  compAccess,
+  automobile,
+  kidtoys,
+  sports,
+  cellphone,
+  jewelery,
+  hardware,
+  furniture,
+];
+
+const categoryImages = [
+  imgFc1,
+  imgFc2,
+  imgFc3,
+  imgFc4,
+  imgFc5,
+  imgFc6,
+  imgFc7,
+  imgFc8,
+  imgFc9,
+];
+
+const itemDetailButton = [
+  video,
+  reviews,
+  sellerpolicy,
+  returnpolity,
+  supportPolicy
+];

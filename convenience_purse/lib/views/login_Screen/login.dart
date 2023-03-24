@@ -3,7 +3,6 @@ import 'package:convenience_purse/common_widgets/applogo.dart';
 import 'package:convenience_purse/common_widgets/text_field.dart';
 import 'package:convenience_purse/common_widgets/button.dart';
 import 'package:convenience_purse/consts/consts.dart';
-import 'package:get/get.dart';
 
 import '../home_screen/home.dart';
 import '../signup_screen/signup.dart';
