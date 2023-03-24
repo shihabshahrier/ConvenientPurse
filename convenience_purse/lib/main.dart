@@ -1,5 +1,4 @@
 import 'package:convenience_purse/views/splash_screen/splash_screen.dart';
-import 'package:get/get.dart';
 
 import './consts/consts.dart';
 

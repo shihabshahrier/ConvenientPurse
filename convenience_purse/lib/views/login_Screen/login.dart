@@ -5,6 +5,7 @@ import 'package:convenience_purse/common_widgets/button.dart';
 import 'package:convenience_purse/consts/consts.dart';
 import 'package:get/get.dart';
 
+import '../home_screen/home.dart';
 import '../signup_screen/signup.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -37,13 +38,18 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   5.heightBox,
+
+                  // login Button
                   button(
-                    onPress: () {},
+                    onPress: () {
+                      Get.to(() => const Home());
+                    },
                     color: (redColor),
                     title: login,
                     textColor: whiteColor,
                   ).box.width(context.width - 100).make(),
                   5.heightBox,
+
                   createNewAccount.text.color(fontGrey).make(),
                   5.heightBox,
                   button(

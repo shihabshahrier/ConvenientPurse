@@ -6,8 +6,15 @@ import '../../common_widgets/button.dart';
 import '../../common_widgets/text_field.dart';
 import '../../consts/consts.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
+
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  bool isCheck = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,19 +37,17 @@ class SignUpScreen extends StatelessWidget {
                   textField(hint: passwordHint, title: confirmPassword)
                       .paddingAll(10),
                   5.heightBox,
-                  button(
-                    onPress: () {},
-                    color: (redColor),
-                    title: signup,
-                    textColor: whiteColor,
-                  ).box.width(context.width - 100).make(),
-                  5.heightBox,
                   Row(
                     children: [
                       Checkbox(
-                        checkColor: Colors.red,
-                        value: false,
-                        onChanged: (newVal) {},
+                        activeColor: redColor,
+                        checkColor: whiteColor,
+                        value: isCheck,
+                        onChanged: (newVal) {
+                          setState(() {
+                            isCheck = newVal!;
+                          });
+                        },
                       ),
                       5.widthBox,
                       Expanded(
@@ -67,6 +72,15 @@ class SignUpScreen extends StatelessWidget {
                     ],
                   ),
                   5.heightBox,
+                  button(
+                    onPress: () {},
+                    color: isCheck ? redColor : fontGrey,
+                    title: signup,
+                    textColor: whiteColor,
+                  ).box.width(context.width - 100).make(),
+                  5.heightBox,
+
+                  // back to login
                   RichText(
                     text: const TextSpan(
                       children: [
