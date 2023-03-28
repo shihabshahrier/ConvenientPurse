@@ -1,5 +1,4 @@
 import 'package:convenience_purse/consts/consts.dart';
-import 'package:convenience_purse/views/category_screen/item_details.dart';
 
 const socialMIcons = [
   icGoogleLogo,
@@ -47,3 +46,9 @@ const itemDetailButton = [
   returnpolity,
   supportPolicy
 ];
+
+const profileButtonslist = [orders, wishlist, messages];
+const profileIcons = [icOrders, icOrder, icMessages];
+
+
+

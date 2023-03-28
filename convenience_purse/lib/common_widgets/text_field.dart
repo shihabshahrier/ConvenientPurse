@@ -2,7 +2,11 @@ import 'package:convenience_purse/consts/consts.dart';
 
 Widget textField({String? title, String? hint, controller}) {
   return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-    title!.text.xl2.color(redColor).fontFamily(semibold).size(10).make(),
+    title!.text.xl2
+        .color(const Color.fromARGB(255, 93, 63, 178))
+        .fontFamily(semibold)
+        .size(10)
+        .make(),
     5.heightBox,
     TextFormField(
       controller: controller,

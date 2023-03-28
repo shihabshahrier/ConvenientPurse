@@ -4,7 +4,7 @@ Widget bgWidget({Widget? child}) {
   return Container(
     decoration: const BoxDecoration(
       image: DecorationImage(
-        image: AssetImage(imgBackground),
+        image: AssetImage(bgimg),
         fit: BoxFit.fill,
       ),
     ),

@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
                     onPress: () {
                       Get.to(() => const Home());
                     },
-                    color: (redColor),
+                    color: const Color.fromARGB(255, 93, 63, 178),
                     title: login,
                     textColor: whiteColor,
                   ).box.width(context.width - 100).make(),
@@ -57,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                     },
                     color: (whiteColor),
                     title: signup,
-                    textColor: redColor,
+                    textColor: const Color.fromARGB(255, 93, 63, 178),
                   ).box.width(context.width - 100).make(),
                   5.heightBox,
                   loginWith.text.color(fontGrey).make(),

@@ -1,4 +1,3 @@
-
 import '../../common_widgets/applogo.dart';
 import '../../common_widgets/bg_wid.dart';
 import '../../common_widgets/button.dart';
@@ -39,7 +38,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Row(
                     children: [
                       Checkbox(
-                        activeColor: redColor,
+                        activeColor: const Color.fromARGB(255, 93, 63, 178),
                         checkColor: whiteColor,
                         value: isCheck,
                         onChanged: (newVal) {
@@ -73,11 +72,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   5.heightBox,
                   button(
                     onPress: () {},
-                    color: isCheck ? redColor : fontGrey,
+                    color: isCheck
+                        ? const Color.fromARGB(255, 93, 63, 178)
+                        : fontGrey,
                     title: signup,
                     textColor: whiteColor,
                   ).box.width(context.width - 100).make(),
-                  5.heightBox,
+                  10.heightBox,
 
                   // back to login
                   RichText(
@@ -89,7 +90,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         TextSpan(
                           text: login,
-                          style: TextStyle(color: redColor),
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 93, 63, 178)),
                         ),
                       ],
                     ),

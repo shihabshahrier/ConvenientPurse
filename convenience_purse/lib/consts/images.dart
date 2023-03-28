@@ -52,6 +52,9 @@ const icWhiteTick = "assets/icons/white_tick.png";
 const icWholeSale = "assets/icons/wholesale.png";
 const logoic = "assets/icons/clogo.png";
 
+const applogo = "assets/icons/applogo.png";
+const bgimg = "assets/icons/back_img.png";
+
 // >>>>>>>>>>>>>>> images >>>>>>>>>>>>>>>> //
 
 const imgBackground = "assets/icons/bg.png";

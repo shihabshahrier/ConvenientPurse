@@ -150,7 +150,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
 
-                    // Featured Categories
+                    // Featured Products
 
                     10.heightBox,
 
@@ -158,7 +158,7 @@ class HomeScreen extends StatelessWidget {
                       width: double.infinity,
                       padding: const EdgeInsets.all(12),
                       decoration: const BoxDecoration(
-                        color: redColor,
+                        color: Color.fromARGB(255, 93, 63, 178),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
