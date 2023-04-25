@@ -1,7 +1,6 @@
 import '../../consts/consts.dart';
 import '../../common_widgets/applogo.dart';
 import 'package:convenience_purse/views/login_Screen/login.dart';
-import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
