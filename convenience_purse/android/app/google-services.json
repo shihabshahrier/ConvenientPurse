@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "581506579152",
+    "project_id": "conpurse",
+    "storage_bucket": "conpurse.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581506579152:android:80e7ed5baae53b8c113cd5",
+        "android_client_info": {
+          "package_name": "com.example.convenience_purse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "581506579152-kq8mjbu44c0a9382jc0db0q6lecthpkb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.convenience_purse",
+            "certificate_hash": "a31916905cf7170b18dc3df6c817bdbeea6b80f3"
+          }
+        },
+        {
+          "client_id": "581506579152-8r9ruo2gg663hbb8479n501edcfa4hh9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8B50lS4wWNZYxMiLf1hNOk2MHmDFfVyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "581506579152-8r9ruo2gg663hbb8479n501edcfa4hh9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

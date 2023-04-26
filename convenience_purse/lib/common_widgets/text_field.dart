@@ -1,6 +1,6 @@
 import 'package:convenience_purse/consts/consts.dart';
 
-Widget textField({String? title, String? hint, controller}) {
+Widget textField({String? title, String? hint, controller, ispass}) {
   return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
     title!.text.xl2
         .color(const Color.fromARGB(255, 93, 63, 178))
@@ -9,6 +9,7 @@ Widget textField({String? title, String? hint, controller}) {
         .make(),
     5.heightBox,
     TextFormField(
+      obscureText: ispass,
       controller: controller,
       decoration: InputDecoration(
         hintStyle: const TextStyle(

@@ -4,6 +4,7 @@ import 'package:convenience_purse/common_widgets/text_field.dart';
 import 'package:convenience_purse/common_widgets/button.dart';
 import 'package:convenience_purse/consts/consts.dart';
 
+import '../../controllers/auth_controller.dart';
 import '../home_screen/home.dart';
 import '../signup_screen/signup.dart';
 
@@ -12,6 +13,8 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(AuthController());
+
     return bgWidget(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -25,14 +28,33 @@ class LoginScreen extends StatelessWidget {
               10.heightBox,
               Column(
                 children: [
-                  textField(hint: emailHint, title: email).paddingAll(10),
+                  textField(
+                          hint: emailHint,
+                          title: email,
+                          ispass: false,
+                          controller: controller.emailController)
+                      .paddingAll(10),
                   10.heightBox,
-                  textField(hint: passwordHint, title: password).paddingAll(10),
+                  textField(
+                          hint: passwordHint,
+                          title: password,
+                          ispass: true,
+                          controller: controller.passwordController)
+                      .paddingAll(10),
                   5.heightBox,
                   Align(
                     alignment: Alignment.centerRight,
+
+                    // login Button
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        await controller.login(context: context).then((value) {
+                          if (value != null) {
+                            VxToast.show(context, msg: loggedIn);
+                            Get.to(() => const Home());
+                          }
+                        });
+                      },
                       child: forgetPass.text.make(),
                     ),
                   ),

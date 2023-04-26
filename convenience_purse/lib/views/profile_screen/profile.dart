@@ -2,6 +2,9 @@ import 'package:convenience_purse/common_widgets/bg_wid.dart';
 import 'package:convenience_purse/consts/consts.dart';
 import 'package:convenience_purse/views/profile_screen/components/info_card.dart';
 
+import '../../controllers/auth_controller.dart';
+import '../login_Screen/login.dart';
+
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
@@ -38,10 +41,15 @@ class ProfileScreen extends StatelessWidget {
                       "someone@host.com".text.white.make(),
                     ])),
                 10.heightBox,
+
+                // logout button
                 OutlinedButton(
                     style: OutlinedButton.styleFrom(
                         side: const BorderSide(color: Colors.white)),
-                    onPressed: () {},
+                    onPressed: () async {
+                      await Get.put(AuthController()).logout(context);
+                      Get.offAll(() => const LoginScreen());
+                    },
                     child: "logout".text.fontFamily(semibold).white.make())
               ],
             ).box.margin(const EdgeInsets.all(8)).make(),

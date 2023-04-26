@@ -3,6 +3,8 @@ import '../../common_widgets/bg_wid.dart';
 import '../../common_widgets/button.dart';
 import '../../common_widgets/text_field.dart';
 import '../../consts/consts.dart';
+import '../../controllers/auth_controller.dart';
+import '../home_screen/home.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -13,6 +15,13 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   bool isCheck = false;
+  var controller = Get.put(AuthController());
+
+  // text field controller
+  var nameController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+  var confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +38,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
               5.heightBox,
               Column(
                 children: [
-                  textField(hint: nameHint, title: name).paddingAll(10),
-                  textField(hint: emailHint, title: email).paddingAll(10),
-                  textField(hint: passwordHint, title: password).paddingAll(10),
-                  textField(hint: passwordHint, title: confirmPassword)
+                  textField(
+                          hint: nameHint,
+                          title: name,
+                          controller: nameController,
+                          ispass: false)
                       .paddingAll(10),
+                  textField(
+                          hint: emailHint,
+                          title: email,
+                          controller: emailController,
+                          ispass: false)
+                      .paddingAll(10),
+                  textField(
+                          hint: passwordHint,
+                          title: password,
+                          controller: passwordController,
+                          ispass: true)
+                      .paddingAll(10),
+                  textField(
+                          hint: passwordHint,
+                          title: confirmPassword,
+                          controller: confirmPasswordController,
+                          ispass: true)
+                      .paddingAll(10),
+
                   5.heightBox,
                   Row(
                     children: [
@@ -71,7 +100,32 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   5.heightBox,
                   button(
-                    onPress: () {},
+                    onPress: () async {
+                      if (isCheck != false) {
+                        try {
+                          await controller
+                              .register(
+                                  context: context,
+                                  name: nameController.text,
+                                  email: emailController.text,
+                                  password: passwordController.text)
+                              .then((value) {
+                            return controller
+                                .storeUserData(
+                                    email: emailController.text,
+                                    password: passwordController.text,
+                                    name: nameController.text)
+                                .then((value) {
+                              VxToast.show(context, msg: loggedIn);
+                              Get.offAll(() => const Home());
+                            });
+                          });
+                        } catch (e) {
+                          // VxToast.show(context, msg: "wtf");
+                          auth.signOut();
+                        }
+                      }
+                    },
                     color: isCheck
                         ? const Color.fromARGB(255, 93, 63, 178)
                         : fontGrey,
