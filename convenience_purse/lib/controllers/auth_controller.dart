@@ -3,6 +3,7 @@ import 'package:convenience_purse/consts/consts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthController extends GetxController {
+  var isLoading = false.obs;
   // text editing controllers
 
   var emailController = TextEditingController();
@@ -42,6 +43,10 @@ class AuthController extends GetxController {
       'email': email,
       'password': password,
       'imgUrl': '',
+      'id': currentUser!.uid,
+      'order_count': '00',
+      'cart_count': '00',
+      'wishlist_count': '00',
     });
   }
 

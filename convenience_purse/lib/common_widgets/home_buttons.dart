@@ -18,5 +18,7 @@ Widget homeButton({width, height, icon, title, onPress}) {
         ),
       ),
     ],
-  ).box.rounded.size(width, height).white.shadowSm.make();
+  ).box.rounded.size(width, height).white.shadowSm.make().onTap(() {
+    onPress();
+  });
 }

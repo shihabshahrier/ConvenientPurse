@@ -1,6 +1,7 @@
 import 'package:convenience_purse/common_widgets/home_buttons.dart';
 import 'package:convenience_purse/consts/consts.dart';
 import 'package:convenience_purse/views/home_screen/components/feature_button.dart';
+import 'package:convenience_purse/views/login_Screen/login.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -69,6 +70,9 @@ class HomeScreen extends StatelessWidget {
                           width: context.screenWidth / 2.5,
                           icon: index == 0 ? icTodaysDeal : icFlashDeal,
                           title: index == 0 ? todaysDeal : flashSale,
+                          onPress: () {
+                            Get.offAll(() => const LoginScreen());
+                          },
                         ),
                       ),
                     ),
