@@ -55,7 +55,7 @@ class CategoryScreen extends StatelessWidget {
                         .outerShadowSm
                         .make()
                         .onTap(() {
-                      controller.getsubcategories(categoriesList[index]);
+                      //controller.getsubcategories(categoriesList[index]);
                       Get.to(() => EachCategory(title: categoriesList[index]));
                     });
                   },
