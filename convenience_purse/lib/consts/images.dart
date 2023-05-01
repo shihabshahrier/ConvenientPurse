@@ -134,3 +134,39 @@ const imgStripe = "assets/images/stripe.png";
 const imgTwocheckout = "assets/images/twocheckout.png";
 const imgVogue = "assets/images/vogue.png";
 const imgWallet = "assets/images/wallet.png";
+
+// slide 1
+
+const n1 = "assets/images/n1.jpeg";
+const n2 = "assets/images/n2.png";
+const n3 = "assets/images/n3.png";
+
+// slide 2
+
+const nn1 = "assets/images/nn1.png";
+const nn2 = "assets/images/nn2.png";
+const nn3 = "assets/images/nn3.png";
+const nn4 = "assets/images/nn4.png";
+
+// categories
+
+const c1 = "assets/images/c1.png";
+const c2 = "assets/images/c2.jpeg";
+const c3 = "assets/images/c3.png";
+const c4 = "assets/images/c4.png";
+const c5 = "assets/images/c5.png";
+const c6 = "assets/images/c6.png";
+
+// featured categories
+
+const cc1 = "assets/images/cc1.jpeg";
+const cc2 = "assets/images/cc2.jpeg";
+const cc3 = "assets/images/cc3.jpeg";
+const cc4 = "assets/images/cc4.png";
+const cc5 = "assets/images/cc5.jpeg";
+const cc6 = "assets/images/cc6.jpeg";
+
+// products
+
+const p1 = "assets/images/pro1.jpeg";
+const p2 = "assets/images/pro2.png";

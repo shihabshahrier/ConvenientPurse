@@ -29,8 +29,8 @@ const home = "Home",
 
 const search = "Search",
     searchHint = "Search for products",
-    flashSale = 'Flash Sale',
-    todaysDeal = "Today's Deal",
+    flashSale = 'Hot Loaded',
+    todaysDeal = "One Time Deal",
     brand = "Brand",
     topSeller = "Top Seller",
     topCategories = "Top Categories",
@@ -53,6 +53,23 @@ const menClothingFashion = "Men Clothing & Fashion",
     jewelery = "Jewelery",
     hardware = "Hardware",
     furniture = "Furniture";
+
+//category strings
+const digitalPainting = "Digital Painting";
+const vectorArt = "Vector Art";
+const pixelArt = "Pixel Art";
+const digitalSculpting = "Digital Sculpting";
+const conceptArt = "Concept Art";
+const motionGraphics = "Motion Graphics";
+
+// more category strings
+
+const portrait = "Portrait",
+    isometric = "Isometric",
+    landscape = "Landscape",
+    environment = "Environment",
+    characterDesign = "Character Design",
+    vehicleDesign = "Vehicle Design";
 
 // product details strings
 const video = "Video",
