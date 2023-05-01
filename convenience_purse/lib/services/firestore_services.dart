@@ -26,4 +26,8 @@ class FireStoreServices {
   static deletedoc(did) {
     return firestore.collection(cartCollection).doc(did).delete();
   }
+
+  static allpoducts() {
+    return firestore.collection(productsCollection).snapshots();
+  }
 }

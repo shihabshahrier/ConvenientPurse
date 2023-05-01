@@ -1,7 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:convenience_purse/common_widgets/home_buttons.dart';
+import 'package:convenience_purse/common_widgets/loading_indi.dart';
 import 'package:convenience_purse/consts/consts.dart';
+import 'package:convenience_purse/services/firestore_services.dart';
 import 'package:convenience_purse/views/home_screen/components/feature_button.dart';
 import 'package:convenience_purse/views/login_Screen/login.dart';
+
+import '../category_screen/item_details.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -235,44 +240,64 @@ class HomeScreen extends StatelessWidget {
                     // ),
 
                     20.heightBox,
-                    GridView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: 10,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                      ),
-                      itemBuilder: (BuildContext context, int index) {
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image.asset(
-                              p1,
-                              width: 120,
-                              height: 120,
-                              fit: BoxFit.cover,
+
+                    StreamBuilder(
+                      stream: FireStoreServices.allpoducts(),
+                      builder: (BuildContext context,
+                          AsyncSnapshot<QuerySnapshot> snapshot) {
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: loadingInditor(),
+                          );
+                        } else {
+                          var data = snapshot.data!.docs;
+                          return GridView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: data.length,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
                             ),
-                            // 5.heightBox,
-                            'Product Name'
-                                .text
-                                .fontFamily(semibold)
-                                .color(darkFontGrey)
-                                .make(),
-                            5.heightBox,
-                            "\$ 100"
-                                .text
-                                .fontFamily(semibold)
-                                .color(darkFontGrey)
-                                .make(),
-                          ],
-                        )
-                            .box
-                            .white
-                            .margin(const EdgeInsets.all(4))
-                            .padding(const EdgeInsets.all(8))
-                            .roundedSM
-                            .make();
+                            itemBuilder: (BuildContext context, int index) {
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Image.network(
+                                    data[index]['p_imgs'][0],
+                                    width: 120,
+                                    height: 120,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  // 5.heightBox,
+                                  "${data[index]['p_name']}"
+                                      .text
+                                      .fontFamily(semibold)
+                                      .color(darkFontGrey)
+                                      .make(),
+                                  5.heightBox,
+                                  "\$ ${data[index]['p_price']}"
+                                      .text
+                                      .fontFamily(semibold)
+                                      .color(darkFontGrey)
+                                      .make(),
+                                ],
+                              )
+                                  .box
+                                  .white
+                                  .margin(const EdgeInsets.all(4))
+                                  .padding(const EdgeInsets.all(8))
+                                  .roundedSM
+                                  .make()
+                                  .onTap(() {
+                                Get.to(() => ItemsDetails(
+                                      title: "${data[index]['p_name']}",
+                                      data: data[index],
+                                    ));
+                              });
+                            },
+                          );
+                        }
                       },
                     ),
                   ],
