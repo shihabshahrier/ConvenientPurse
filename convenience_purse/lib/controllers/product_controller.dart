@@ -39,4 +39,35 @@ class ProductController extends GetxController {
   calculateTotalPrice(price) {
     totalPrice.value = price * quantity.value;
   }
+
+  addToCart({
+    title,
+    price,
+    imgUrl,
+    seller,
+    color,
+    quantity,
+    context,
+  }) async {
+    await firestore.collection(cartCollection).doc().set({
+      'title': title,
+      'price': price,
+      'imgUrl': imgUrl,
+      'color': color,
+      'quantity': quantity,
+      'seller': seller,
+      'addedby': currentUser!.uid,
+    }).catchError((e) {
+      VxToast.show(context!,
+          msg: e.toString(), bgColor: Colors.amber, textColor: whiteColor);
+    });
+  }
+
+  resetValue() {
+    totalPrice.value = 0;
+    quantity.value = 0;
+    colorIndex.value = 0;
+    
+
+  }
 }
