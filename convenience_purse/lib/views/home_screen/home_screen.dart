@@ -100,27 +100,27 @@ class HomeScreen extends StatelessWidget {
 
                     10.heightBox,
 
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: List.generate(
-                          3,
-                          (index) => homeButton(
-                                height: context.screenHeight * 0.15,
-                                width: context.screenWidth / 3.5,
-                                icon: index == 0
-                                    ? icTopCategories
-                                    : index == 1
-                                        ? icBrands
-                                        : icTopSeller,
-                                title: index == 0
-                                    ? topCategories
-                                    : index == 1
-                                        ? brand
-                                        : topSeller,
-                              )),
-                    ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    //   children: List.generate(
+                    //       3,
+                    //       (index) => homeButton(
+                    //             height: context.screenHeight * 0.15,
+                    //             width: context.screenWidth / 3.5,
+                    //             icon: index == 0
+                    //                 ? icTopCategories
+                    //                 : index == 1
+                    //                     ? icBrands
+                    //                     : icTopSeller,
+                    //             title: index == 0
+                    //                 ? topCategories
+                    //                 : index == 1
+                    //                     ? brand
+                    //                     : topSeller,
+                    //           )),
+                    // ),
 
-                    20.heightBox,
+                    // 20.heightBox,
 
                     Align(
                       alignment: Alignment.centerLeft,
@@ -182,7 +182,7 @@ class HomeScreen extends StatelessWidget {
                                 (index) => Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Image.asset(imgP1,
+                                    Image.asset(p2,
                                         width: 150, fit: BoxFit.cover),
                                     10.heightBox,
                                     'Product Name'
@@ -215,24 +215,24 @@ class HomeScreen extends StatelessWidget {
 
                     // 3nd swipper
 
-                    VxSwiper.builder(
-                      aspectRatio: 2.5,
-                      height: 140,
-                      autoPlay: true,
-                      enlargeCenterPage: true,
-                      itemCount: secondSliderlist.length,
-                      itemBuilder: (context, index) {
-                        return Image.asset(
-                          secondSliderlist[index],
-                          fit: BoxFit.fill,
-                        )
-                            .box
-                            .rounded
-                            .clip(Clip.antiAlias)
-                            .margin(const EdgeInsets.symmetric(horizontal: 8))
-                            .make();
-                      },
-                    ),
+                    // VxSwiper.builder(
+                    //   aspectRatio: 2.5,
+                    //   height: 140,
+                    //   autoPlay: true,
+                    //   enlargeCenterPage: true,
+                    //   itemCount: secondSliderlist.length,
+                    //   itemBuilder: (context, index) {
+                    //     return Image.asset(
+                    //       secondSliderlist[index],
+                    //       fit: BoxFit.fill,
+                    //     )
+                    //         .box
+                    //         .rounded
+                    //         .clip(Clip.antiAlias)
+                    //         .margin(const EdgeInsets.symmetric(horizontal: 8))
+                    //         .make();
+                    //   },
+                    // ),
 
                     20.heightBox,
                     GridView.builder(
@@ -248,7 +248,7 @@ class HomeScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Image.asset(
-                              imgP5,
+                              p1,
                               width: 120,
                               height: 120,
                               fit: BoxFit.cover,

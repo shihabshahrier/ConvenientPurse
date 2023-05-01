@@ -2,12 +2,15 @@ import 'package:convenience_purse/common_widgets/bg_wid.dart';
 import 'package:convenience_purse/consts/consts.dart';
 import 'package:convenience_purse/views/category_screen/item_details.dart';
 
+import '../../controllers/product_controller.dart';
+
 class EachCategory extends StatelessWidget {
   final String title;
   const EachCategory({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.find<ProductController>();
     return bgWidget(
       child: Scaffold(
         appBar: AppBar(
@@ -22,8 +25,8 @@ class EachCategory extends StatelessWidget {
                 child: Row(
                   children: [
                     List.generate(
-                        6,
-                        (index) => "Empty"
+                        controller.subcat.length,
+                        (index) => "${controller.subcat[index].text}"
                             .text
                             .fontFamily(semibold)
                             .color(darkFontGrey)
@@ -58,7 +61,7 @@ class EachCategory extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Image.asset(
-                            imgP5,
+                            p1,
                             width: 120,
                             height: 120,
                             fit: BoxFit.cover,

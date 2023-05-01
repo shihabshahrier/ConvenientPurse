@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:convenience_purse/consts/consts.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -13,7 +14,8 @@ class ProfileController extends GetxController {
   var profileImgUrl = '';
 
   var nameController = TextEditingController();
-  var passController = TextEditingController();
+  var oldPassController = TextEditingController();
+  var newPassController = TextEditingController();
 
   var isloading = false.obs;
 
@@ -38,7 +40,7 @@ class ProfileController extends GetxController {
     await ref.putFile(File(profileImgPath.value));
 
     profileImgUrl = await ref.getDownloadURL();
-    print("profileImgUrl: $profileImgUrl");
+    // print("profileImgUrl: $profileImgUrl");
   }
 
   updateProfile({name, password, imgUrl}) async {
@@ -50,5 +52,17 @@ class ProfileController extends GetxController {
     }, SetOptions(merge: true));
 
     isloading(false);
+  }
+
+  changeAuthpassword({email, password, newpassword}) async {
+    final cred = EmailAuthProvider.credential(
+        email: currentUser!.email!, password: password);
+
+    await currentUser!
+        .reauthenticateWithCredential(cred)
+        .then((value) => currentUser!.updatePassword(newpassword))
+        .catchError((error) {
+      // print(error.toString());
+    });
   }
 }

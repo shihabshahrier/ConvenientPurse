@@ -22,18 +22,25 @@ class EditProfile extends StatelessWidget {
           () => Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              controller.profileImgPath.isEmpty
+              // profile image
+              data['imgUrl'] == '' && controller.profileImgPath.isEmpty
                   ? Image.asset(imgProfile,
                           width: 110, height: 100, fit: BoxFit.cover)
                       .box
                       .roundedFull
                       .clip(Clip.antiAlias)
                       .make()
-                  : Image.file(
-                      File(controller.profileImgPath.value),
-                      width: 110,
-                      fit: BoxFit.cover,
-                    ).box.roundedFull.clip(Clip.antiAlias).make(),
+                  : data['imgUrl'] != '' && controller.profileImgPath.isEmpty
+                      ? Image.network(
+                          data['imgUrl'],
+                          width: 110,
+                          fit: BoxFit.cover,
+                        ).box.roundedFull.clip(Clip.antiAlias).make()
+                      : Image.file(
+                          File(controller.profileImgPath.value),
+                          width: 110,
+                          fit: BoxFit.cover,
+                        ).box.roundedFull.clip(Clip.antiAlias).make(),
               10.heightBox,
               button(
                   color: mus,
@@ -50,11 +57,19 @@ class EditProfile extends StatelessWidget {
                 ispass: false,
                 controller: controller.nameController,
               ),
+              10.heightBox,
               textField(
                 hint: passwordHint,
-                title: password,
+                title: "Old Password",
                 ispass: true,
-                controller: controller.passController,
+                controller: controller.oldPassController,
+              ),
+              10.heightBox,
+              textField(
+                hint: passwordHint,
+                title: "New Password",
+                ispass: true,
+                controller: controller.newPassController,
               ),
               20.heightBox,
               controller.isloading.value
@@ -67,14 +82,48 @@ class EditProfile extends StatelessWidget {
                           color: mus,
                           onPress: () async {
                             controller.isloading.value = true;
-                            await controller.uploadProfileImage();
-                            await controller.updateProfile(
-                                imgUrl: controller.profileImgPath.value,
-                                name: controller.nameController.text,
-                                password: controller.passController.text);
 
-                            controller.isloading.value = false;
-                            Get.back();
+                            //if image is not selected
+                            if (controller.profileImgPath.isEmpty) {
+                              await controller.uploadProfileImage();
+                            } else {
+                              controller.profileImgPath = data['imgUrl'];
+                            }
+
+                            //if old password is correct
+                            if (data['password'] ==
+                                controller.oldPassController.text) {
+                              await controller.changeAuthpassword(
+                                  email: data['email'],
+                                  password: controller.oldPassController.text,
+                                  newpassword:
+                                      controller.newPassController.text);
+
+                              await controller.updateProfile(
+                                  imgUrl: controller.profileImgPath.value,
+                                  name: controller.nameController.text,
+                                  password: controller.newPassController.text);
+
+                              VxToast.show(
+                                context,
+                                msg: "Profile Updated",
+                                bgColor: Colors.green,
+                                textColor: Colors.white,
+                                position: VxToastPosition.top,
+                                showTime: 4000,
+                              );
+                            } else {
+                              VxToast.show(
+                                context,
+                                msg: "Old Password is incorrect",
+                                bgColor: Colors.red,
+                                textColor: Colors.white,
+                                position: VxToastPosition.top,
+                                showTime: 4000,
+                              );
+
+                              controller.isloading(false);
+                            }
                           },
                           textColor: whiteColor,
                           title: "save"),

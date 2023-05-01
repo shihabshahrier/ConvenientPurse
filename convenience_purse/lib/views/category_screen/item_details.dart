@@ -1,12 +1,15 @@
 import 'package:convenience_purse/common_widgets/button.dart';
 import 'package:convenience_purse/consts/consts.dart';
 
+
 class ItemsDetails extends StatelessWidget {
   final String title;
   const ItemsDetails({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+   
+
     return Scaffold(
       backgroundColor: lightGrey,
       appBar: AppBar(

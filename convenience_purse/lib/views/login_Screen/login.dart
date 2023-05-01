@@ -48,7 +48,9 @@ class LoginScreen extends StatelessWidget {
 
                       // forget password
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.offAll(() => const Home());
+                        },
                         child: forgetPass.text.make(),
                       ),
                     ),

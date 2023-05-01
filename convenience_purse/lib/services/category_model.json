@@ -1,0 +1,52 @@
+{
+    "categories": [
+        {
+            "name": "Digital Painting",
+            "subcategories": [
+                "Portrait",
+                "Landscape",
+                "Still Life"
+            ]
+        },
+        {
+            "name": "Vector Art",
+            "subcategories": [
+                "Flat Design",
+                "Isometric",
+                "Iconography"
+            ]
+        },
+        {
+            "name": "Pixel Art",
+            "subcategories": [
+                "8-bit",
+                "16-bit",
+                "32-bit"
+            ]
+        },
+        {
+            "name": "Concept Art",
+            "subcategories": [
+                "Character Design",
+                "Environment",
+                "Vehicle"
+            ]
+        },
+        {
+            "name": "Digital Sculpting",
+            "subcategories": [
+                "Organic",
+                "Mechanical",
+                "Creature"
+            ]
+        },
+        {
+            "name": "Motion Graphics",
+            "subcategories": [
+                "2D Animation",
+                "3D Animation",
+                "Title Sequence"
+            ]
+        }
+    ]
+}

@@ -42,7 +42,6 @@ class ProfileScreen extends StatelessWidget {
                     )
                         .onTap(() {
                           controller.nameController.text = data['name'];
-                          controller.passController.text = data['password'];
 
                           Get.to(() => EditProfile(
                                 data: data,
